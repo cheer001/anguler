@@ -1,0 +1,31 @@
+## Angular 前端框架学习笔记
+
+##### 快速入门
+> 全局安装cli
+```
+npm install -g @angular/cli
+```
+
+> 创建Angular项目
+```
+ng new projectName
+```
+
+> 启动项目
+```
+ng serve --open
+```
+
+
+##### 模板语法
++ 插值语法 `{{}}`
++ 列表循环 `*ngFor` 
+```
+<div *ngFor="let product of products">
+	{{product.name}}
+</div>
+```
++ if指令 `*ngIf`
++ 属性绑定 `[]`
++ 事件绑定是通过把`事件名称`包裹在圆括号 `( )` 中完成的 例：`(click)="share()"`
+
