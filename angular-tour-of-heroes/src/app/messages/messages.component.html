@@ -1,5 +1,4 @@
-<hr />
-<div *ngIf="messageService.messages.length">
+<div class="message-container" *ngIf="messageService.messages.length">
   <h2>Messages</h2>
   <button type="button" class="clear" (click)="messageService.clear()">
     Clear messages

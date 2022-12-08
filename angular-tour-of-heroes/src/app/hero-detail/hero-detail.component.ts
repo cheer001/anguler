@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -7,10 +10,23 @@ import { Hero } from '../hero';
   styleUrls: ['./hero-detail.component.css'],
 })
 export class HeroDetailComponent implements OnInit {
-  ngOnInit(): void {}
+  hero?: Hero;
+  constructor(
+    private route: ActivatedRoute,
+    private heroService: HeroService,
+    private location: Location
+  ) {}
 
-  constructor() {}
+  ngOnInit(): void {
+    this.getHero();
+  }
 
-  /** 表示要从外部接受一个hero对象 并且是Hero实体类型 */
-  @Input() hero?: Hero;
+  getHero(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this, this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
+  }
+
+  goBack() {
+    this.location.back();
+  }
 }

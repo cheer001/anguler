@@ -10,27 +10,19 @@ import { Hero } from './../hero';
 })
 export class HeroesComponent implements OnInit {
   private heroService;
-  private messageSrevice;
+  heroes: Hero[] = [];
+
   constructor(heroService: HeroService, messageService: MessageService) {
     this.heroService = heroService;
-    this.messageSrevice = messageService;
-  }
-
-  heroes: Hero[] = [];
-  selectedHero?: Hero;
-
-  /** 获取服务中提供的getHeroes()方法返回的数据 */
-  getHeroes(): void {
-    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageSrevice.add(`HeroesComponent:Selected hero id=${hero.id}`);
   }
 
   ngOnInit(): void {
     /** 初始化Heroes数据列表 */
     this.getHeroes();
+  }
+
+  /** 获取服务中提供的getHeroes()方法返回的数据 */
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
 }

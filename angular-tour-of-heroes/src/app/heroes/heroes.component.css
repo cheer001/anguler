@@ -5,6 +5,9 @@
 .heroes li {
   list-style: none;
 }
+.heroes a {
+  text-decoration: none;
+}
 
 .btn-container {
   display: flex;
@@ -25,6 +28,8 @@
   padding: 3px;
   display: flex;
   flex: 1;
+  justify-content: center;
+  align-items: center;
 
   border: 0px;
   cursor: pointer;
