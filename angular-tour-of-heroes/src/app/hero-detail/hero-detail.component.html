@@ -1,4 +1,4 @@
-<hr />
+<hr *ngIf="hero" />
 <div *ngIf="hero">
   <h2>{{ hero.name | uppercase }}</h2>
   <div>ID:{{ hero.id }}</div>
