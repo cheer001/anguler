@@ -1,0 +1,19 @@
+.hero-details-container {
+  margin-top: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.hero-details {
+  margin: 5px;
+}
+
+button {
+  margin: 5px;
+}

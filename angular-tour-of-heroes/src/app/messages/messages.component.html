@@ -3,7 +3,7 @@
   <button type="button" class="clear" (click)="messageService.clear()">
     Clear messages
   </button>
-  <div *ngFor="let message of messageService.messages">
+  <div class="msg-details" *ngFor="let message of messageService.messages">
     {{ message }}
   </div>
 </div>

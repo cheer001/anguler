@@ -1,7 +1,11 @@
-.dashboard {
+.dashboard-container {
   margin-top: 10px;
   border: 1px solid #999;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .heroes-menu {
   display: flex;
