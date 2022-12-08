@@ -29,4 +29,14 @@ export class HeroDetailComponent implements OnInit {
   goBack() {
     this.location.back();
   }
+
+  save(): void {
+    if (!this.hero?.name) {
+      window.alert('请输入英雄名称！');
+      return;
+    }
+    if (this.hero) {
+      this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+    }
+  }
 }

@@ -1,15 +1,28 @@
 <div class="heroes-container">
   <h2>My Heroes</h2>
-  <ul class="heroes">
-    <li *ngFor="let hero of heroes">
-      <a routerLink="/detail/{{ hero.id }}">
+  <div class="add-hero-container">
+    <div class="input-container">
+      <label for="new-hero">Hero name: </label>
+      <input id="new-hero" #heroName />
+    </div>
+    <button
+      type="button"
+      class="add-button"
+      (click)="addHero(heroName.value); heroName.value = ''"
+    >
+      Add hero
+    </button>
+  </div>
+  <div class="heroes">
+    <div *ngFor="let hero of heroes">
+      <div routerLink="/detail/{{ hero.id }}">
         <div class="btn-container">
           <div class="badge">{{ hero.id }}</div>
           <button type="button" class="name">
             {{ hero.name }}
           </button>
         </div>
-      </a>
-    </li>
-  </ul>
+      </div>
+    </div>
+  </div>
 </div>

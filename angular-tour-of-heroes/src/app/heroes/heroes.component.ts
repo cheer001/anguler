@@ -25,4 +25,15 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
+
+  addHero(name: string): void {
+    name = name.trim();
+    if (!name) {
+      window.alert('请填写英雄名称！');
+      return;
+    }
+    this.heroService
+      .addHero({ name } as Hero)
+      .subscribe((hero) => this.heroes.push(hero));
+  }
 }
