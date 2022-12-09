@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Hero } from './hero';
 import { MessageService } from './message.service';
@@ -65,7 +65,7 @@ export class HeroService {
     if (!term.trim()) return of([]);
 
     return this.http
-      .get<Hero[]>(`${this.heroesUrl}/name=${term}`)
+      .get<Hero[]>(`${this.heroesUrl}/?name=${term}`)
       .pipe(
         tap(
           (x) =>
