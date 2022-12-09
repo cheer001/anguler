@@ -15,13 +15,21 @@
   </div>
   <div class="heroes">
     <div *ngFor="let hero of heroes">
-      <div routerLink="/detail/{{ hero.id }}">
-        <div class="btn-container">
+      <div class="hero-operator">
+        <div class="btn-container" routerLink="/detail/{{ hero.id }}">
           <div class="badge">{{ hero.id }}</div>
           <button type="button" class="name">
             {{ hero.name }}
           </button>
         </div>
+        <button
+          class="delete-hero"
+          type="button"
+          title="delete hero"
+          (click)="deleteHero(hero.id)"
+        >
+          x
+        </button>
       </div>
     </div>
   </div>
